@@ -1,0 +1,174 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title>StrawNet</title>
+  <style type="text/css">
+    table, th, td {
+      border: 1px solid black;
+      border-collapse: collapse;
+      text-align: center;
+    }
+</style>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+
+  <h1>StrawNet: Self-Training WaveNet for TTS in Low-Data Regimes</h1>
+
+  <img src="StrawNet.png" width="150px" height="150px">
+
+  <h3>Audio samples for experiments in Figure 2 (reconstructed below)</h3>
+  <img src="Figure2.png" width="400px" height="400px">
+
+  <!-- Sample 1 -->
+  <h4>Sample 1</h4>
+  <p>As a golfer, it’s always smart to wear 2 pairs of pants. You know, in case you get a hole in one.</p>
+  <table>
+    <tr>
+      <th>#Recordings for training</th>
+      <th>WaveNet teacher</th>
+      <th>WaveNet student</th> 
+      <th>StrawNet student<sup>*</sup></th>
+    </tr>
+    <tr>
+      <td>3000</td>
+      <td><audio controls> <source src='sample1/wt_3k.wav' type="audio/wav" /> </audio></td>
+      <td><audio controls> <source src='sample1/ws_3k.wav' type="audio/wav" /> </audio></td>
+      <td><audio controls> <source src='sample1/ss_3k.wav' type="audio/wav" /> </audio></td>
+    </tr>
+    <tr>
+      <td>5000</td>
+      <td><audio controls> <source src='sample1/wt_5k.wav' type="audio/wav" /> </audio></td>
+      <td><audio controls> <source src='sample1/ws_5k.wav' type="audio/wav" /> </audio></td>
+      <td><audio controls> <source src='sample1/ss_5k.wav' type="audio/wav" /> </audio></td>
+    </tr>
+    <tr>
+      <td>7000</td>
+      <td><audio controls> <source src='sample1/wt_7k.wav' type="audio/wav" /> </audio></td>
+      <td><audio controls> <source src='sample1/ws_7k.wav' type="audio/wav" /> </audio></td>
+      <td><audio controls> <source src='sample1/ss_7k.wav' type="audio/wav" /> </audio></td>
+    </tr>
+    <tr>
+      <td>10000</td>
+      <td><audio controls> <source src='sample1/wt_10k.wav' type="audio/wav" /> </audio></td>
+      <td><audio controls> <source src='sample1/ws_10k.wav' type="audio/wav" /> </audio></td>
+      <td><audio controls> <source src='sample1/ss_10k.wav' type="audio/wav" /> </audio></td>
+    </tr>
+    <tr>
+      <td>15000</td>
+      <td><audio controls> <source src='sample1/wt_15k.wav' type="audio/wav" /> </audio></td>
+      <td><audio controls> <source src='sample1/ws_15k.wav' type="audio/wav" /> </audio></td>
+      <td><audio controls> <source src='sample1/ss_15k.wav' type="audio/wav" /> </audio></td>
+    </tr>
+    <tr>
+      <td>24000</td>
+      <td><audio controls> <source src='sample1/wt_24k.wav' type="audio/wav" /> </audio></td>
+      <td><audio controls> <source src='sample1/ws_24k.wav' type="audio/wav" /> </audio></td>
+      <td><audio controls> <source src='sample1/ss_24k.wav' type="audio/wav" /> </audio></td>
+    </tr>
+  </table>
+  <small>* Synthesis step involves 40k utterances</small>
+
+  <!-- Sample 2 -->
+  <h4>Sample 2</h4>
+  <p>Playing teenage mutant ninja turtles dance show with april o'neil at nick hotel on YouTube.</p>
+  <table>
+    <tr>
+      <th>#Recordings for training</th>
+      <th>WaveNet teacher</th>
+      <th>WaveNet student</th> 
+      <th>StrawNet student<sup>*</sup></th>
+    </tr>
+    <tr>
+      <td>3000</td>
+      <td><audio controls> <source src='sample2/wt_3k.wav' type="audio/wav" /> </audio></td>
+      <td><audio controls> <source src='sample2/ws_3k.wav' type="audio/wav" /> </audio></td>
+      <td><audio controls> <source src='sample2/ss_3k.wav' type="audio/wav" /> </audio></td>
+    </tr>
+    <tr>
+      <td>5000</td>
+      <td><audio controls> <source src='sample2/wt_5k.wav' type="audio/wav" /> </audio></td>
+      <td><audio controls> <source src='sample2/ws_5k.wav' type="audio/wav" /> </audio></td>
+      <td><audio controls> <source src='sample2/ss_5k.wav' type="audio/wav" /> </audio></td>
+    </tr>
+    <tr>
+      <td>7000</td>
+      <td><audio controls> <source src='sample2/wt_7k.wav' type="audio/wav" /> </audio></td>
+      <td><audio controls> <source src='sample2/ws_7k.wav' type="audio/wav" /> </audio></td>
+      <td><audio controls> <source src='sample2/ss_7k.wav' type="audio/wav" /> </audio></td>
+    </tr>
+    <tr>
+      <td>10000</td>
+      <td><audio controls> <source src='sample2/wt_10k.wav' type="audio/wav" /> </audio></td>
+      <td><audio controls> <source src='sample2/ws_10k.wav' type="audio/wav" /> </audio></td>
+      <td><audio controls> <source src='sample2/ss_10k.wav' type="audio/wav" /> </audio></td>
+    </tr>
+    <tr>
+      <td>15000</td>
+      <td><audio controls> <source src='sample2/wt_15k.wav' type="audio/wav" /> </audio></td>
+      <td><audio controls> <source src='sample2/ws_15k.wav' type="audio/wav" /> </audio></td>
+      <td><audio controls> <source src='sample2/ss_15k.wav' type="audio/wav" /> </audio></td>
+    </tr>
+    <tr>
+      <td>24000</td>
+      <td><audio controls> <source src='sample2/wt_24k.wav' type="audio/wav" /> </audio></td>
+      <td><audio controls> <source src='sample2/ws_24k.wav' type="audio/wav" /> </audio></td>
+      <td><audio controls> <source src='sample2/ss_24k.wav' type="audio/wav" /> </audio></td>
+    </tr>
+  </table>
+  <small>* Synthesis step involves 40k utterances</small>
+
+  <!-- Sample 3 -->
+  <h4>Sample 3</h4>
+  <p>According to Wikipedia: C. Rajagopalachari became the only Indian Governor-General.</p>
+  <table>
+    <tr>
+      <th>#Recordings for training</th>
+      <th>WaveNet teacher</th>
+      <th>WaveNet student</th> 
+      <th>StrawNet student<sup>*</sup></th>
+    </tr>
+    <tr>
+      <td>3000</td>
+      <td><audio controls> <source src='sample3/wt_3k.wav' type="audio/wav" /> </audio></td>
+      <td><audio controls> <source src='sample3/ws_3k.wav' type="audio/wav" /> </audio></td>
+      <td><audio controls> <source src='sample3/ss_3k.wav' type="audio/wav" /> </audio></td>
+    </tr>
+    <tr>
+      <td>5000</td>
+      <td><audio controls> <source src='sample3/wt_5k.wav' type="audio/wav" /> </audio></td>
+      <td><audio controls> <source src='sample3/ws_5k.wav' type="audio/wav" /> </audio></td>
+      <td><audio controls> <source src='sample3/ss_5k.wav' type="audio/wav" /> </audio></td>
+    </tr>
+    <tr>
+      <td>7000</td>
+      <td><audio controls> <source src='sample3/wt_7k.wav' type="audio/wav" /> </audio></td>
+      <td><audio controls> <source src='sample3/ws_7k.wav' type="audio/wav" /> </audio></td>
+      <td><audio controls> <source src='sample3/ss_7k.wav' type="audio/wav" /> </audio></td>
+    </tr>
+    <tr>
+      <td>10000</td>
+      <td><audio controls> <source src='sample3/wt_10k.wav' type="audio/wav" /> </audio></td>
+      <td><audio controls> <source src='sample3/ws_10k.wav' type="audio/wav" /> </audio></td>
+      <td><audio controls> <source src='sample3/ss_10k.wav' type="audio/wav" /> </audio></td>
+    </tr>
+    <tr>
+      <td>15000</td>
+      <td><audio controls> <source src='sample3/wt_15k.wav' type="audio/wav" /> </audio></td>
+      <td><audio controls> <source src='sample3/ws_15k.wav' type="audio/wav" /> </audio></td>
+      <td><audio controls> <source src='sample3/ss_15k.wav' type="audio/wav" /> </audio></td>
+    </tr>
+    <tr>
+      <td>24000</td>
+      <td><audio controls> <source src='sample3/wt_24k.wav' type="audio/wav" /> </audio></td>
+      <td><audio controls> <source src='sample3/ws_24k.wav' type="audio/wav" /> </audio></td>
+      <td><audio controls> <source src='sample3/ss_24k.wav' type="audio/wav" /> </audio></td>
+    </tr>
+  </table>
+  <small>* Synthesis step involves 40k utterances</small>
+
+</body>
+</html>
+
+
