@@ -1,0 +1,37 @@
+body {
+  background-color: #FFFFFF;
+  margin: 0;
+  height: 100%;
+}
+
+#top_div {
+    width: 1000px;
+    margin: 20px 0px 20px 0px;
+}
+
+table, th, td {
+    border-collapse: collapse;
+    padding: 5px;
+    text-align: center;
+}
+
+.table_enclosing_row {
+    background-color: #ffd53f;
+}
+
+.table_top_col {
+    padding: 15px 0px 15px 0px;
+}
+
+
+th {
+    background-color: #ffe691;
+}
+
+.even_row {
+    background-color: #fefbef;
+}
+
+.odd_row {
+    background-color: #fff3c8;
+}
